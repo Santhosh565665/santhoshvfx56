@@ -44,11 +44,11 @@ section{position:relative;z-index:10}
 .reveal{opacity:0;transform:translateY(30px);transition:opacity .75s ease,transform .75s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .d1{transition-delay:.1s}.d2{transition-delay:.18s}.d3{transition-delay:.26s}.d4{transition-delay:.34s}.d5{transition-delay:.42s}
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 var(--center-pad) 96px}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:0 var(--center-pad)}
 .hero-tag{display:flex;align-items:center;gap:12px;margin-bottom:22px;opacity:0;animation:fadeUp .65s .5s forwards}
 .hero-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent-glow)}
 .hero-tag-text{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.38em;text-transform:uppercase;color:rgba(255,255,255,.4)}
-.hero-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(68px,11vw,178px);line-height:.86;letter-spacing:.025em;color:#FFFFFF;opacity:0;animation:fadeUp .95s .65s forwards}
+.hero-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(68px,10vw,178px);line-height:.86;letter-spacing:.025em;color:#FFFFFF;opacity:0;animation:fadeUp .95s .65s forwards;white-space:nowrap}
 .hero-bottom{display:flex;align-items:flex-end;justify-content:space-between;margin-top:44px;gap:32px;opacity:0;animation:fadeUp .75s .9s forwards}
 .hero-info{display:flex;flex-direction:column;gap:8px}
 .hero-roles{display:flex;align-items:center;gap:14px}
@@ -79,33 +79,37 @@ section{position:relative;z-index:10}
 .play-btn svg{width:26px;height:26px;margin-left:3px}
 .video-frame{position:absolute;inset:0;width:100%;height:100%;border:none;opacity:0;transition:opacity .5s}
 .video-frame.active{opacity:1}
-.works-section{padding:60px 0 140px}
-.works-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:52px;padding:0 var(--center-pad)}
-.marquee-outer{width:100%;overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent 0%,#000 8%,#000 92%,transparent 100%);mask:linear-gradient(90deg,transparent 0%,#000 8%,#000 92%,transparent 100%)}
-.marquee-track{display:flex;gap:18px;width:max-content;animation:marqueeScroll 36s linear infinite}
-.marquee-track:hover{animation-play-state:paused}
-@keyframes marqueeScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.g1{background:radial-gradient(ellipse at 35% 40%,#001840 0%,#000511 75%)}
-.g2{background:radial-gradient(ellipse at 68% 32%,#1f0800 0%,#000000 75%)}
-.g3{background:radial-gradient(ellipse at 50% 62%,#001818 0%,#000000 75%)}
-.g4{background:radial-gradient(ellipse at 22% 52%,#0d0022 0%,#000000 75%)}
-.g5{background:radial-gradient(ellipse at 78% 22%,#1e0008 0%,#000000 75%)}
-.g6{background:radial-gradient(ellipse at 42% 72%,#001508 0%,#000000 75%)}
-.proj-card{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--border);cursor:pointer;transition:transform .35s,border-color .35s,box-shadow .35s;width:340px;height:460px;flex-shrink:0;background:var(--bg-card)}
-.proj-card:hover{transform:translateY(-10px) scale(1.02);border-color:rgba(0,85,254,.38);box-shadow:0 32px 72px rgba(0,0,0,.6),0 0 40px rgba(0,85,254,.08)}
-.proj-poster{position:absolute;inset:0}
-.proj-bottom-line{position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);opacity:0;transition:opacity .3s}
-.proj-card:hover .proj-bottom-line{opacity:1}
-.proj-inner{position:absolute;inset:0;padding:26px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(to top,rgba(0,0,0,.9) 0%,rgba(0,0,0,.1) 50%,transparent 100%)}
-.proj-header{display:flex;justify-content:space-between;align-items:flex-start}
-.proj-num{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.3em;color:rgba(255,255,255,.2)}
-.proj-badge{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:.2em;text-transform:uppercase;padding:5px 12px;border:1px solid rgba(255,255,255,.08);border-radius:50px;color:rgba(255,255,255,.35)}
-.proj-cat{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
-.proj-name{font-family:'Bebas Neue',sans-serif;font-size:34px;letter-spacing:.04em;line-height:1;color:var(--white);margin-bottom:8px}
-.proj-info{font-family:'Outfit',sans-serif;font-size:13px;color:rgba(255,255,255,.38);line-height:1.55}
-.proj-arrow{position:absolute;bottom:26px;right:26px;width:40px;height:40px;border-radius:50%;background:rgba(0,85,254,0);border:1px solid rgba(0,85,254,0);display:flex;align-items:center;justify-content:center;transition:all .3s;opacity:0}
-.proj-arrow svg{width:16px;height:16px}
-.proj-card:hover .proj-arrow{opacity:1;background:rgba(0,85,254,.15);border-color:rgba(0,85,254,.4)}
+/* ── WORKS SECTION – STACKED STICKY CARDS ── */
+.works-section{padding:80px 0 0;position:relative;z-index:10}
+.works-intro{padding:0 var(--center-pad) 72px;display:flex;justify-content:space-between;align-items:flex-end;gap:48px}
+.works-intro-left{}
+.works-intro-right{max-width:360px}
+.works-intro-right p{font-family:'Outfit',sans-serif;font-size:15px;color:#444;line-height:1.8}
+.works-intro-right p strong{color:rgba(255,255,255,.55);font-weight:500}
+.stack-container{position:relative;padding-bottom:120px}
+.stack-track{display:flex;flex-direction:column;align-items:center;gap:0}
+.stack-item{position:sticky;top:80px;width:calc(100% - 2*var(--center-pad));max-width:1100px;margin:0 auto;aspect-ratio:16/9;border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,.07);transition:box-shadow .4s;cursor:pointer;margin-bottom:24px}
+.stack-item:nth-child(1){z-index:1}
+.stack-item:nth-child(2){z-index:2}
+.stack-item:nth-child(3){z-index:3}
+.stack-item:hover{box-shadow:0 0 60px rgba(0,85,254,.12)}
+.si-bg{position:absolute;inset:0;transition:transform .6s ease}
+.stack-item:hover .si-bg{transform:scale(1.03)}
+.g1{background:#000814}
+.g2{background:#0a0200}
+.g3{background:#000b0b}
+.si-footer{position:absolute;bottom:0;left:0;right:0;height:56px;background:rgba(6,6,6,.92);backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.07);display:flex;align-items:center;padding:0 28px;gap:0}
+.si-footer-left{display:flex;align-items:center;gap:9px;flex-shrink:0;padding-right:20px}
+.si-name{font-family:'Outfit',sans-serif;font-weight:600;font-size:13px;color:#fff;letter-spacing:.02em}
+.si-year{font-family:'Outfit',sans-serif;font-size:13px;color:rgba(255,255,255,.35);letter-spacing:.02em}
+.si-divider-v{width:1px;height:22px;background:rgba(255,255,255,.1);flex-shrink:0}
+.si-progress-wrap{flex:1;height:4px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden;margin:0 20px}
+.si-progress-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--accent) 0%,rgba(0,85,254,.45) 100%)}
+.si-footer-right{display:flex;gap:8px;flex-shrink:0;padding-left:20px}
+.si-pill{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45);padding:6px 14px;border:1px solid rgba(255,255,255,.11);border-radius:50px;white-space:nowrap}
+.si-bar{position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent 70%);opacity:0;transition:opacity .35s}
+.stack-item:hover .si-bar{opacity:1}
+
 .about-section{padding:60px var(--center-pad) 140px;position:relative}.about-section::before,.about-section::after{content:"";position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 25%,rgba(255,255,255,0.08) 30%,rgba(255,255,255,0.08) 70%,transparent 75%)}.about-section::before{top:0}.about-section::after{bottom:0}
 .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:96px;align-items:center}
 .about-bio{font-family:'Outfit',sans-serif;font-size:17px;font-weight:300;line-height:1.88;color:#666;margin-top:28px;margin-bottom:44px}
@@ -159,7 +163,8 @@ footer{position:relative;z-index:10;padding:28px var(--center-pad);border-top:1p
 @media(max-width:1100px){
   nav,footer,.hero,.showreel-section,.about-section,.skills-section,.contact-section{padding-left:15vw;padding-right:15vw}
   nav.scrolled{padding-left:15vw;padding-right:15vw}
-  .works-header{padding-left:15vw;padding-right:15vw}
+  .works-intro{padding-left:15vw;padding-right:15vw}
+  .stack-item{width:calc(100% - 2*15vw)}
   .skills-grid{grid-template-columns:repeat(3,1fr)}
   .about-grid{gap:56px}
   .scroll-hint{right:15vw}
@@ -167,15 +172,17 @@ footer{position:relative;z-index:10;padding:28px var(--center-pad);border-top:1p
 @media(max-width:768px){
   nav,footer,.hero,.showreel-section,.about-section,.skills-section,.contact-section{padding-left:6vw;padding-right:6vw}
   nav.scrolled{padding-left:6vw;padding-right:6vw}
-  .works-header{padding-left:6vw;padding-right:6vw}
+  .works-intro{padding-left:6vw;padding-right:6vw;flex-direction:column;align-items:flex-start;gap:24px}
+  .stack-item{width:calc(100% - 12vw)}
+  .si-inner{padding:28px 28px}
+  .si-title{font-size:clamp(42px,10vw,80px)}
   .hero{padding-bottom:80px}
   .hero-name{font-size:clamp(52px,14vw,92px)}
   .hero-bottom{flex-direction:column;align-items:flex-start;gap:32px}
   .scroll-hint{display:none}
-  .showreel-header,.works-header{flex-direction:column;align-items:flex-start;gap:20px}
+  .showreel-header{flex-direction:column;align-items:flex-start;gap:20px}
   .about-grid{grid-template-columns:1fr}
   .about-stats{grid-template-columns:repeat(3,1fr)}
-  .proj-card{width:260px;height:360px}
   .skills-grid{grid-template-columns:1fr 1fr}
   .skills-header{flex-direction:column;align-items:flex-start;gap:12px}
   .contact-big{font-size:clamp(48px,13vw,88px)}
@@ -184,7 +191,6 @@ footer{position:relative;z-index:10;padding:28px var(--center-pad);border-top:1p
   .nav-cta{display:none}
 }
 @media(max-width:480px){
-  .proj-card{width:220px;height:300px}
   .skills-grid{grid-template-columns:1fr 1fr}
 }
 </style>
@@ -265,28 +271,76 @@ footer{position:relative;z-index:10;padding:28px var(--center-pad);border-top:1p
 
 <!-- WORKS -->
 <section class="works-section" id="works">
-  <div class="works-header reveal">
-    <div>
+  <div class="works-intro reveal">
+    <div class="works-intro-left">
       <div class="eyebrow"><span class="ey-line"></span><span class="ey-label">Selected Work</span></div>
-      <h2 class="section-title">Projects</h2>
+      <h2 class="section-title">Best<br>Works</h2>
     </div>
-    <span style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:#2e2e2e">Hover to pause</span>
+    <div class="works-intro-right">
+      <p>A curated selection of my finest VFX shots &mdash; <strong>compositing, simulation &amp; cinematic FX</strong> spanning feature films and personal projects. Each piece represents a unique challenge solved frame by frame.</p>
+    </div>
   </div>
-  <div class="marquee-outer reveal">
-    <div class="marquee-track">
-      <div class="proj-card"><div class="proj-poster g1"></div><div class="proj-bottom-line"></div><div class="proj-inner"><div class="proj-header"><span class="proj-num">01</span><span class="proj-badge">Film VFX</span></div><div><div class="proj-cat">Feature Film</div><div class="proj-name">Project 01</div><div class="proj-info">VFX compositing &mdash; Details coming soon.</div></div></div><div class="proj-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent)"><path d="M3 13L13 3M13 3H6M13 3V10"/></svg></div></div>
-      <div class="proj-card"><div class="proj-poster g2"></div><div class="proj-bottom-line"></div><div class="proj-inner"><div class="proj-header"><span class="proj-num">02</span><span class="proj-badge">Film VFX</span></div><div><div class="proj-cat">Feature Film</div><div class="proj-name">Project 02</div><div class="proj-info">VFX compositing &mdash; Details coming soon.</div></div></div><div class="proj-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent)"><path d="M3 13L13 3M13 3H6M13 3V10"/></svg></div></div>
-      <div class="proj-card"><div class="proj-poster g3"></div><div class="proj-bottom-line"></div><div class="proj-inner"><div class="proj-header"><span class="proj-num">03</span><span class="proj-badge">Film VFX</span></div><div><div class="proj-cat">Feature Film</div><div class="proj-name">Project 03</div><div class="proj-info">VFX compositing &mdash; Details coming soon.</div></div></div><div class="proj-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent)"><path d="M3 13L13 3M13 3H6M13 3V10"/></svg></div></div>
-      <div class="proj-card"><div class="proj-poster g4"></div><div class="proj-bottom-line"></div><div class="proj-inner"><div class="proj-header"><span class="proj-num">04</span><span class="proj-badge">Film VFX</span></div><div><div class="proj-cat">Feature Film</div><div class="proj-name">Project 04</div><div class="proj-info">VFX compositing &mdash; Details coming soon.</div></div></div><div class="proj-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent)"><path d="M3 13L13 3M13 3H6M13 3V10"/></svg></div></div>
-      <div class="proj-card"><div class="proj-poster g5"></div><div class="proj-bottom-line"></div><div class="proj-inner"><div class="proj-header"><span class="proj-num">05</span><span class="proj-badge">Film VFX</span></div><div><div class="proj-cat">Feature Film</div><div class="proj-name">Project 05</div><div class="proj-info">VFX compositing &mdash; Details coming soon.</div></div></div><div class="proj-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent)"><path d="M3 13L13 3M13 3H6M13 3V10"/></svg></div></div>
-      <div class="proj-card"><div class="proj-poster g6"></div><div class="proj-bottom-line"></div><div class="proj-inner"><div class="proj-header"><span class="proj-num">06</span><span class="proj-badge">Film VFX</span></div><div><div class="proj-cat">Feature Film</div><div class="proj-name">Project 06</div><div class="proj-info">VFX compositing &mdash; Details coming soon.</div></div></div><div class="proj-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent)"><path d="M3 13L13 3M13 3H6M13 3V10"/></svg></div></div>
-      <!-- duplicate for seamless loop -->
-      <div class="proj-card"><div class="proj-poster g1"></div><div class="proj-bottom-line"></div><div class="proj-inner"><div class="proj-header"><span class="proj-num">01</span><span class="proj-badge">Film VFX</span></div><div><div class="proj-cat">Feature Film</div><div class="proj-name">Project 01</div><div class="proj-info">VFX compositing &mdash; Details coming soon.</div></div></div><div class="proj-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent)"><path d="M3 13L13 3M13 3H6M13 3V10"/></svg></div></div>
-      <div class="proj-card"><div class="proj-poster g2"></div><div class="proj-bottom-line"></div><div class="proj-inner"><div class="proj-header"><span class="proj-num">02</span><span class="proj-badge">Film VFX</span></div><div><div class="proj-cat">Feature Film</div><div class="proj-name">Project 02</div><div class="proj-info">VFX compositing &mdash; Details coming soon.</div></div></div><div class="proj-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent)"><path d="M3 13L13 3M13 3H6M13 3V10"/></svg></div></div>
-      <div class="proj-card"><div class="proj-poster g3"></div><div class="proj-bottom-line"></div><div class="proj-inner"><div class="proj-header"><span class="proj-num">03</span><span class="proj-badge">Film VFX</span></div><div><div class="proj-cat">Feature Film</div><div class="proj-name">Project 03</div><div class="proj-info">VFX compositing &mdash; Details coming soon.</div></div></div><div class="proj-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent)"><path d="M3 13L13 3M13 3H6M13 3V10"/></svg></div></div>
-      <div class="proj-card"><div class="proj-poster g4"></div><div class="proj-bottom-line"></div><div class="proj-inner"><div class="proj-header"><span class="proj-num">04</span><span class="proj-badge">Film VFX</span></div><div><div class="proj-cat">Feature Film</div><div class="proj-name">Project 04</div><div class="proj-info">VFX compositing &mdash; Details coming soon.</div></div></div><div class="proj-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent)"><path d="M3 13L13 3M13 3H6M13 3V10"/></svg></div></div>
-      <div class="proj-card"><div class="proj-poster g5"></div><div class="proj-bottom-line"></div><div class="proj-inner"><div class="proj-header"><span class="proj-num">05</span><span class="proj-badge">Film VFX</span></div><div><div class="proj-cat">Feature Film</div><div class="proj-name">Project 05</div><div class="proj-info">VFX compositing &mdash; Details coming soon.</div></div></div><div class="proj-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent)"><path d="M3 13L13 3M13 3H6M13 3V10"/></svg></div></div>
-      <div class="proj-card"><div class="proj-poster g6"></div><div class="proj-bottom-line"></div><div class="proj-inner"><div class="proj-header"><span class="proj-num">06</span><span class="proj-badge">Film VFX</span></div><div><div class="proj-cat">Feature Film</div><div class="proj-name">Project 06</div><div class="proj-info">VFX compositing &mdash; Details coming soon.</div></div></div><div class="proj-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent)"><path d="M3 13L13 3M13 3H6M13 3V10"/></svg></div></div>
+
+  <div class="stack-container">
+    <div class="stack-track">
+
+      <!-- Card 1 -->
+      <div class="stack-item">
+        <iframe class="si-bg" src="https://www.youtube.com/embed/tROqeygc6Gc?rel=0&modestbranding=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none;background:#000814"></iframe>
+        <div class="si-footer">
+          <div class="si-footer-left">
+            <span class="si-name">Project 01</span>
+            <span class="si-year">&middot; 2025</span>
+          </div>
+          <div class="si-divider-v"></div>
+          <div class="si-progress-wrap"><div class="si-progress-fill" style="width:72%"></div></div>
+          <div class="si-divider-v"></div>
+          <div class="si-footer-right">
+            <span class="si-pill">Houdini FX</span>
+            <span class="si-pill">Feature Film</span>
+          </div>
+        </div>
+        <div class="si-bar"></div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="stack-item">
+        <iframe class="si-bg" src="https://www.youtube.com/embed/6gqlC5_7vyo?rel=0&modestbranding=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none;background:#0a0200"></iframe>
+        <div class="si-footer">
+          <div class="si-footer-left">
+            <span class="si-name">Project 02</span>
+            <span class="si-year">&middot; 2025</span>
+          </div>
+          <div class="si-divider-v"></div>
+          <div class="si-progress-wrap"><div class="si-progress-fill" style="width:55%"></div></div>
+          <div class="si-divider-v"></div>
+          <div class="si-footer-right">
+            <span class="si-pill">Nuke Comp</span>
+            <span class="si-pill">Short Film</span>
+          </div>
+        </div>
+        <div class="si-bar"></div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="stack-item">
+        <iframe class="si-bg" src="https://www.youtube.com/embed/HeW0bLydc9Q?rel=0&modestbranding=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none;background:#000b0b"></iframe>
+        <div class="si-footer">
+          <div class="si-footer-left">
+            <span class="si-name">Project 03</span>
+            <span class="si-year">&middot; 2026</span>
+          </div>
+          <div class="si-divider-v"></div>
+          <div class="si-progress-wrap"><div class="si-progress-fill" style="width:88%"></div></div>
+          <div class="si-divider-v"></div>
+          <div class="si-footer-right">
+            <span class="si-pill">Motion FX</span>
+            <span class="si-pill">AI &amp; VFX</span>
+          </div>
+        </div>
+        <div class="si-bar"></div>
+      </div>
+
     </div>
   </div>
 </section>
