@@ -485,8 +485,7 @@ document.querySelectorAll('.skill-card').forEach(function(el){skillObs.observe(e
 
 // PLAY SHOWREEL — used by both the hero button and the in-section play button
 function launchShowreel(){
-  var frame=document.getElementById('videoFrame');  var thumb=document.getElementById('videoThu
-mb');
+  var frame=document.getElementById('videoFrame');  var thumb=document.getElementById('videoThumb');
   if(!frame.src || frame.src===window.location.href){
     frame.src=frame.getAttribute('data-src');
   }
